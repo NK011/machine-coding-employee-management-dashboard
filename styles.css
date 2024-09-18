@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    padding: 0.5rem;
+    margin: 1rem;
+    border: 1px solid gray;
+    border-radius: 0.5rem;
+}
+
+.container .container__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.4rem;
+}
+
+.container .container__header .add-emp {
+    padding: 0.4rem;
+    border-radius: 0.2rem;
+    outline: none;
+    border: 1px solid black;
+    transition: all 0.2s linear;
+    background: linear-gradient(to right, black 50%, transparent 50%);
+    background-size: 200%;
+    background-position: -99%;
+}
+
+.container .container__header .add-emp:hover {
+    color: white;
+    background-position: 0%;
+    font-weight: bold;
+}
+
+.container .container__table {
+    padding: 0.4rem;
+    display: flex;
+}
+
+.container .container__table .container__table__column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid grey;
+}
+
+.container .container__table .container__table__column > h4 {
+    padding: 0.4rem;
+    border-bottom: 1px solid grey;
+    width: 100%;
+    text-align: center;
+}
+
+.container .container__table .container__table__column:nth-child(1) {
+    flex-grow: 0.2;
+}
+.container .container__table .container__table__column:nth-child(2) {
+    flex-grow: 0.8;
+}
+
+.container .container__table .container__table__column .employee-list {
+    width: 100%;
+}
+
+.container .container__table .container__table__column .employee-list ul {
+    list-style: none;
+}
+
+.container .container__table .container__table__column .employee-list ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.4rem;
+
+}
+
+.container
+    .container__table
+    .container__table__column
+    .employee-list
+    ul
+    li:hover {
+    background-color: whitesmoke;
+    cursor: pointer;
+}
+
+.container
+    .container__table
+    .container__table__column
+    .employee-list
+    .employee-del-btn {
+    padding: 0.2rem 0.3rem;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    border-radius: 0.2rem;
+    border: 1px solid transparent;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+}
+
+.container
+    .container__table
+    .container__table__column
+    .employee-list
+    .employee-del-btn:hover {
+    background-color: transparent;
+    color: red;
+    border: 1px solid red;
+}
+
+.container .container__table .container__table__column .employee-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+}
+
+.container
+    .container__table
+    .container__table__column
+    .employee-details
+    .user__image {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.container
+    .container__table
+    .container__table__column
+    .employee-details
+    .user__info {
+    text-align: center;
+}
+
+.container
+    .container__table
+    .container__table__column
+    .employee-details
+    .user__info
+    > p:nth-child(1) {
+    font-weight: bold;
+    font-size: 1.3rem;
+}
