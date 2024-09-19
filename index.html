@@ -6,11 +6,12 @@
         <link rel="stylesheet" href="./styles.css" type="text/css" />
         <title>Employee Management Dashboard</title>
     </head>
+
     <body>
         <div class="container">
             <div class="container__header">
                 <h3>Employee Management Dashboard</h3>
-                <button type="button" class="add-emp">Add Employee</button>
+                <button type="button" class="add-emp" onclick="openAddUserModal(event)">Add Employee</button>
             </div>
             <div class="container__table">
                 <div class="container__table__column">
@@ -36,9 +37,47 @@
                         </div>
                     </div>
                 </div>
-                </div>
             </div>
         </div>
+        <div class="add_user__modal">
+            <form id="user-form">
+                <div>
+                    <input
+                        type="name"
+                        placeholder="Enter first name"
+                        name="first_name"
+                    />
+                    <input
+                        type="name"
+                        placeholder="Enter last name"
+                        name="last_name"
+                    />
+                    <input
+                        type="text"
+                        placeholder="Enter company name"
+                        name="company"
+                    />
+                    <input
+                        type="text"
+                        placeholder="Enter gender"
+                        name="gender"
+                    />
+                    <input
+                        type="email"
+                        placeholder="Enter email"
+                        name="email"
+                    />
+                </div>
+                <button
+                    type="submit"
+                    id="add_user_btn"
+                    onclick="addUser(event)"
+                >
+                    Add User
+                </button>
+            </form>
+        </div>
+
         <script src="./index.js"></script>
     </body>
-    </html>
+</html>

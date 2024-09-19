@@ -94,17 +94,17 @@ let data = [
 
 function selectUser(id = DEFAULT_DISPLAY_USER_ID) {
     let user = data.find((user) => user.id === id);
-    console.log(id)
+    console.log(id);
     console.log(user);
-    console.log(!user)
-    if(!user) {
+    console.log(!user);
+    if (!user) {
         user = {
             first_name: "",
             last_name: "",
             company: "",
             gender: "",
             picture: "",
-        }
+        };
     }
 
     const userDetailsDiv = document.querySelector(".employee-details");
@@ -162,6 +162,56 @@ function createList() {
     employeeListItems.forEach((item) => employeeList.appendChild(item));
 
     employeeListDiv.replaceChild(employeeList, existingEmployeeList);
+}
+
+function addUser(e) {
+    e.preventDefault();
+
+    const userForm = document.getElementById("user-form");
+    const formData = new FormData(userForm);
+    let userData = {};
+    let usersList = [...data];
+    let emptyFields = [];
+
+    formData.forEach((value, key) => {
+        if (value === "") {
+            emptyFields.push(key);
+        }
+        userData[key] = value;
+    });
+
+    if (emptyFields.length) {
+        window.alert(`Please enter ${emptyFields.join(",")}`);
+        return;
+    }
+
+    usersList.push({
+        id: usersList.length + 1,
+        picture: "./assets/wp7709776-bmw-m-1000-rr-wallpapers.jpg",
+        ...userData,
+    });
+
+    data = [...usersList];
+    closeAddUserModal(e);
+    createList();
+    e.stopPropagation();
+}
+
+function closeAddUserModal(e) {
+    if (e.target === e.currentTarget) {
+        const mainBody = document.querySelector("body");
+        const addUserModal = document.querySelector(".add_user__modal");
+        addUserModal.style.visibility = "hidden";
+        mainBody.replaceChild(addUserModal, addUserModal);
+    }
+}
+
+function openAddUserModal(e) {
+    const mainBody = document.querySelector("body");
+    const addUserModal = document.querySelector(".add_user__modal");
+    addUserModal.style.visibility = "visible";
+    addUserModal.addEventListener("click", (e) =>  closeAddUserModal(e))
+    mainBody.replaceChild(addUserModal, addUserModal);
 }
 
 createList();
